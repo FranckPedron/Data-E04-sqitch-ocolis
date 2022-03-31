@@ -1,0 +1,13 @@
+::
+LIVREUR: nom_livreur
+effectue, 11 EXPEDITION, 0N LIVREUR
+
+reçoit, 0N ADRESSE, 11 COLIS
+COLIS: numéro interne, contenu, poids, hauteur, valeur estimée, largeur, profondeur, request_time, expedition_time, delivered_time
+livre, 01 COLIS, 0N EXPEDITION
+EXPEDITION: réf expédition, date_départ, date_retour
+
+ADRESSE: référence interne, nom, ligne principale, complément, code postal, ville
+envoie, 0N ADRESSE, 11 COLIS
+VEHICULE: immatriculation
+utilise, 11 EXPEDITION, 0N VEHICULE
