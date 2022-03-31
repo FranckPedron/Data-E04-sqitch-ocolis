@@ -11,10 +11,13 @@ ALTER TABLE package
 -- je viens créer un DOMAIN qui me permet de venir customiser un type natif
 -- ici je fais en sorte que je n'ai que des entiers positifs
 CREATE DOMAIN pint AS integer CHECK (VALUE > 0);
+CREATE DOMAIN postal_code_fr AS integer CHECK (VALUE ~ '(([0-8][0-9])|(9[0-5]|97))\d{3}');
+
+CREATE DOMAIN license_plate_fr AS integer CHECK (VALUE ~ '[a-zA-Z]{2}(\d{3}|[\-|\s]\d{3})(([a-zA-Z]{2})|[\-|\s][a-zA-Z]{2})');
 
 ALTER TABLE package
     ALTER COLUMN width TYPE pint,
     ALTER COLUMN height TYPE pint,
     ALTER COLUMN depth TYPE pint;
-    
+
 COMMIT;
